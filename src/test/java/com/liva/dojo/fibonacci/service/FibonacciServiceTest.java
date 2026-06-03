@@ -1,6 +1,5 @@
 package com.liva.dojo.fibonacci.service;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -8,11 +7,14 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.time.Duration;
+
+import org.awaitility.Awaitility;
+
 public class FibonacciServiceTest {
     
     private FibonacciService fibonacciService = new FibonacciService();
 
-    @Disabled
     @ParameterizedTest
     @CsvSource({
             "0, 0",
@@ -28,11 +30,12 @@ public class FibonacciServiceTest {
     }
 
     @Test
-    void should_12586269025_for_50() {
-        assertThat(fibonacciService.fibonacci(50)).isEqualTo(12586269025L);
+    void should_return_12586269025_for_50_and_execution_time_less_than_1_second() {
+        Awaitility.await().atMost(Duration.ofSeconds(1)).untilAsserted(() -> {
+            assertThat(fibonacciService.fibonacci(50)).isEqualTo(12586269025L);
+        });
     }
 
-    @Disabled
     @Test
     void should_throw_illegal_argument_exception_for_negative_input() {
         assertThatThrownBy(() -> fibonacciService.fibonacci(-1))
