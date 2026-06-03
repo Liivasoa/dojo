@@ -12,7 +12,7 @@ import com.liva.dojo.fibonacci.service.FibonacciService;
 @RequestMapping("/fibonacci")
 public class FibonacciController {
 
-    private FibonacciService fibonacciService;
+    private final FibonacciService fibonacciService;
 
     public FibonacciController(FibonacciService fibonacciService) {
         this.fibonacciService = fibonacciService;
