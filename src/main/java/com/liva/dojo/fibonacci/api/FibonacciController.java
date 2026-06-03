@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.liva.dojo.fibonacci.service.FibonacciService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/fibonacci")
 public class FibonacciController {
@@ -19,6 +21,9 @@ public class FibonacciController {
     }
 
     @GetMapping("/{n}")
+    @Operation(summary = "Returns the Fibonacci number for a given non-negative integer position n",
+        description = "Return 55 for 10, 6765 for 20, and so on"
+    )
     public ResponseEntity<String> getFibonacci(@PathVariable int n) {
         if(n < 0) {
             return ResponseEntity.badRequest().body("Input must be a non-negative integer");
