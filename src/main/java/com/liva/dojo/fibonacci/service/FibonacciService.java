@@ -1,5 +1,8 @@
 package com.liva.dojo.fibonacci.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class FibonacciService {
 
     public int fibonacci(int i) {
