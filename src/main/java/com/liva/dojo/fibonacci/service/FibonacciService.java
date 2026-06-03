@@ -1,13 +1,8 @@
 package com.liva.dojo.fibonacci.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class FibonacciService {
 
-    private Map<Integer, Integer> counterMap = new HashMap<>();
-
-    public Object fibonacci(int i) {
+    public int fibonacci(int i) {
         if(i < 0) {
             throw new IllegalArgumentException("Input must be a non-negative integer");
         }
