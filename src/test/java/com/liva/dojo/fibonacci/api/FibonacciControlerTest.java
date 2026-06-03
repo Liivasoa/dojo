@@ -6,8 +6,6 @@ import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTe
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.web.servlet.client.RestTestClient;
 
-import com.liva.dojo.fibonacci.FibonacciControler;
-
 @WebMvcTest(FibonacciControler.class)
 @AutoConfigureRestTestClient
 public class FibonacciControlerTest {

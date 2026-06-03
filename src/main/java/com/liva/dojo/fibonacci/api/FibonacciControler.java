@@ -1,4 +1,4 @@
-package com.liva.dojo.fibonacci;
+package com.liva.dojo.fibonacci.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
