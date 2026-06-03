@@ -1,5 +1,7 @@
 package com.liva.dojo.fibonacci.api;
 
+import java.math.BigInteger;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +30,7 @@ public class FibonacciController {
         if(n < 0) {
             return ResponseEntity.badRequest().body("Input must be a non-negative integer");
         }
-        long result = fibonacciService.fibonacci(n);
+        BigInteger result = fibonacciService.fibonacci(n);
         return ResponseEntity.ok("Fibonacci sequence for n=" + n + " is " + result);
     }
 

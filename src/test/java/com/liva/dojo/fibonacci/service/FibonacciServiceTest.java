@@ -1,5 +1,7 @@
 package com.liva.dojo.fibonacci.service;
 
+import java.math.BigInteger;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -21,8 +23,16 @@ public class FibonacciServiceTest {
             "30, 832040",
             "40, 102334155",
     })
-    void should_return_expected_fibonacci(int input, int expected) {
-        assertThat(fibonacciService.fibonacci(input)).isEqualTo(expected);
+    void should_return_expected_fibonacci(int input, long expected) {
+        assertThat(fibonacciService.fibonacci(input)).isEqualTo(BigInteger.valueOf(expected));
+    }
+
+    @Test
+    void should_return_large_fibonacci_without_overflow() {
+        assertThat(fibonacciService.fibonacci(50_000).toString())
+                .hasSize(10450)
+                .startsWith("1077773489307297478027903")
+                .endsWith("0297618305364252373553125");
     }
 
     @Test
