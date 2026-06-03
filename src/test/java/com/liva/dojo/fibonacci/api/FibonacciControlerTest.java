@@ -9,7 +9,7 @@ import org.springframework.test.web.servlet.client.RestTestClient;
 
 import com.liva.dojo.fibonacci.service.FibonacciService;
 
-@WebMvcTest(FibonacciControler.class)
+@WebMvcTest(FibonacciController.class)
 @AutoConfigureRestTestClient
 public class FibonacciControlerTest {
 

@@ -10,11 +10,11 @@ import com.liva.dojo.fibonacci.service.FibonacciService;
 
 @RestController
 @RequestMapping("/fibonacci")
-public class FibonacciControler {
+public class FibonacciController {
 
     private FibonacciService fibonacciService;
 
-    public FibonacciControler(FibonacciService fibonacciService) {
+    public FibonacciController(FibonacciService fibonacciService) {
         this.fibonacciService = fibonacciService;
     }
 
