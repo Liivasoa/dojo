@@ -1,6 +1,5 @@
 package com.liva.dojo.fibonacci.service;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -28,7 +27,7 @@ public class FibonacciServiceTest {
             "40, 102334155",
             "46, 1836311903"
     })
-    void should_return_expected_fibonacci(int input, int expected) {
+    void should_return_expected_fibonacci(int input, BigInteger expected) {
         assertThat(fibonacciService.fibonacci(input)).isEqualTo(expected);
     }
 

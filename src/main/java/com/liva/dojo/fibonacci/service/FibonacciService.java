@@ -1,15 +1,16 @@
 package com.liva.dojo.fibonacci.service;
 
 import java.math.BigInteger;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 import org.springframework.stereotype.Service;
 
 @Service
 public class FibonacciService {
 
-    private Map<Integer, BigInteger> memoizationCache = new HashMap<>(Map.of(0, BigInteger.ZERO, 1, BigInteger.ONE));
+    private final ConcurrentMap<Integer, BigInteger> memoizationCache = new ConcurrentHashMap<>(Map.of(0, BigInteger.ZERO, 1, BigInteger.ONE));
 
     public BigInteger fibonacci(int i) {
         if(i < 0) {
