@@ -5,11 +5,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.springframework.stereotype.Service;
-
 import com.liva.dojo.fibonacci.usecase.FibonacciUseCase;
 
-@Service
 public class FibonacciService implements FibonacciUseCase {
 
     private final ConcurrentMap<Integer, BigInteger> memoizationCache = new ConcurrentHashMap<>(Map.of(0, BigInteger.ZERO, 1, BigInteger.ONE));
