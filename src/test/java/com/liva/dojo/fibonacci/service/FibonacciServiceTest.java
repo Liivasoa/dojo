@@ -12,9 +12,11 @@ import java.time.Duration;
 
 import org.awaitility.Awaitility;
 
+import com.liva.dojo.fibonacci.usecase.FibonacciUseCase;
+
 public class FibonacciServiceTest {
     
-    private FibonacciService fibonacciService = new FibonacciService();
+    private FibonacciUseCase fibonacciService = new NewWayFibonacciService();
 
     @ParameterizedTest
     @CsvSource({

@@ -7,7 +7,7 @@ import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.client.RestTestClient;
 
-import com.liva.dojo.fibonacci.service.FibonacciService;
+import com.liva.dojo.fibonacci.usecase.FibonacciUseCase;
 
 @WebMvcTest(FibonacciController.class)
 @AutoConfigureRestTestClient
@@ -17,7 +17,7 @@ public class FibonacciControlerTest {
     private RestTestClient restClient;
 
     @MockitoBean
-    private FibonacciService fibonacciService;
+    private FibonacciUseCase fibonacciUseCase;
 
     @Test
     void should_return_fibonacci_sequence_for_valid_input() {

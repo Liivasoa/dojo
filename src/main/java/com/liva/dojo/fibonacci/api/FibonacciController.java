@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.liva.dojo.fibonacci.service.FibonacciService;
+import com.liva.dojo.fibonacci.usecase.FibonacciUseCase;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -16,10 +16,10 @@ import io.swagger.v3.oas.annotations.Operation;
 @RequestMapping("/fibonacci")
 public class FibonacciController {
 
-    private final FibonacciService fibonacciService;
+    private final FibonacciUseCase fibonacciUseCase;
 
-    public FibonacciController(FibonacciService fibonacciService) {
-        this.fibonacciService = fibonacciService;
+    public FibonacciController(FibonacciUseCase fibonacciUseCase) {
+        this.fibonacciUseCase = fibonacciUseCase;
     }
 
     @GetMapping("/{n}")
@@ -30,7 +30,7 @@ public class FibonacciController {
         if(n < 0) {
             return ResponseEntity.badRequest().body("Input must be a non-negative integer");
         }
-        BigInteger result = fibonacciService.fibonacci(n);
+        BigInteger result = fibonacciUseCase.fibonacci(n);
         return ResponseEntity.ok("Fibonacci sequence for n=" + n + " is " + result);
     }
 
