@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class ServiceAspect {
 
     @Around("execution(* com.liva.dojo.*.usecase.*UseCase.*(..))")
-    public Object logServiceMethods(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object logServiceMethodExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.nanoTime();
         try {
             return joinPoint.proceed();
